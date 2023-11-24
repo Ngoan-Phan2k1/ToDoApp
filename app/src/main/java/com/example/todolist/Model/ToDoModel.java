@@ -31,7 +31,6 @@ public class ToDoModel {
         this.id = id;
     }
 
-
     public boolean isStatus() {
         return status;
     }
