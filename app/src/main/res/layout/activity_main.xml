@@ -18,6 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,5 +37,25 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         android:src="@drawable/baseline_add_24" />
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:text="Sort"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:id="@+id/sort"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:textColor="@color/colorPrimary"-->
+<!--        android:textSize="20dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginBottom="5dp"/>-->
+    <ImageView
+        android:id="@+id/mMenus"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/baseline_more_horiz_24" />
 
 </RelativeLayout>

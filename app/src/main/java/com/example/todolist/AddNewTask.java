@@ -52,7 +52,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
         //myDb = new DataBaseHelper(getActivity());
         myDb = DataBaseHelper.getInstance(getActivity());
 
-
         boolean isUpdate = false;
 
         final Bundle bundle = getArguments();
@@ -68,7 +67,10 @@ public class AddNewTask extends BottomSheetDialogFragment {
         mEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                if (s.toString().equals("")){
+                    mSaveButton.setEnabled(false);
+                    mSaveButton.setBackgroundColor(Color.GRAY);
+                }
             }
 
             @Override
@@ -96,11 +98,12 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 if (finalIsUpdate){
                     //myDb.updateTask(bundle.getInt("id") , text);
                     myDb.toDoDAO().updateTask(bundle.getInt("id") , text);
-                }else{
+                } else {
                     ToDoModel item = new ToDoModel();
                     item.setTask(text);
                     item.setStatus(false);
                     //myDb.insertTask(item);
+                    item.setCreatedAt(System.currentTimeMillis());
                     myDb.toDoDAO().insert(item);
                 }
                 dismiss();

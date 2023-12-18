@@ -1,10 +1,16 @@
 package com.example.todolist.Model;
 
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+//@Data
+//@NoArgsConstructor
 public class ToDoModel {
     @PrimaryKey(autoGenerate = true)
     private  int id;
@@ -14,6 +20,24 @@ public class ToDoModel {
 
     @ColumnInfo(name = "status")
     private boolean status;
+
+    @ColumnInfo(name="creation_time")
+    private Long createdAt;
+
+    @ColumnInfo(name="priority", defaultValue = "1")
+    private int priority;
+
+    public ToDoModel(int id, String task, boolean status, Long createdAt) {
+        this.id = id;
+        this.task = task;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.priority = 1;
+    }
+
+    public ToDoModel() {
+
+    }
 
     public String getTask() {
         return task;
@@ -37,5 +61,21 @@ public class ToDoModel {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Long getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 }

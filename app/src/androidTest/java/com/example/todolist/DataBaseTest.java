@@ -1,43 +1,31 @@
 package com.example.todolist;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import android.content.Context;
 
 import androidx.room.Room;
 import androidx.test.core.app.ApplicationProvider;
-import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+
+import com.example.todolist.Model.ToDoModel;
+import com.example.todolist.Utils.DataBaseHelper;
+import com.example.todolist.Utils.ToDoDAO;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
-
-import com.example.todolist.Model.ToDoModel;
-import com.example.todolist.Utils.DataBaseHelper;
-import com.example.todolist.Utils.ToDoDAO;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+public class DataBaseTest {
 
     private ToDoDAO toDoDAO;
     private DataBaseHelper dataBaseHelper;
-
-//    @Test
-//    public void useAppContext() {
-//        // Context of the app under test.
-//        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-//        assertEquals("com.example.todolist", appContext.getPackageName());
-//    }
 
     @Before
     public void createDb() {
@@ -61,7 +49,6 @@ public class ExampleInstrumentedTest {
         toDoDAO.insert(taskTest);
         List<ToDoModel> tasks = toDoDAO.getAllTasks();
         assertEquals(1, tasks.size());
-        //assertTrue(tasks.size() > 0);
     }
 
     @Test
@@ -105,5 +92,4 @@ public class ExampleInstrumentedTest {
         ToDoModel taskCheck = tasks.get(0);
         assertEquals(true, taskCheck.isStatus());
     }
-
 }

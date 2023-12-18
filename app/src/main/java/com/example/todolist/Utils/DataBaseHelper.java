@@ -8,13 +8,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 import androidx.annotation.Nullable;
+import androidx.room.AutoMigration;
 import androidx.room.Database;
 import androidx.room.Query;
+import androidx.room.RenameColumn;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.migration.AutoMigrationSpec;
 
 import com.example.todolist.Model.ToDoModel;
 
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -115,12 +119,24 @@ import java.util.List;
 //
 //}
 
-@Database(entities = {ToDoModel.class}, version = 1)
+@Database(
+        entities = {ToDoModel.class},
+        version = 5,
+        exportSchema = true,
+        autoMigrations = {
+                @AutoMigration(
+                        from = 4,
+                        to = 5,
+                        spec = DataBaseHelper.MyAutoMigration.class
+                )
+        }
+)
 public abstract class DataBaseHelper extends RoomDatabase {
     private static  final String DATABASE_NAME = "TODO_DATABASE";
-    private static DataBaseHelper dataBaseHelper;
+    private static volatile DataBaseHelper dataBaseHelper;
 
     public static DataBaseHelper getInstance(Context context) {
+
         if (dataBaseHelper == null) {
             dataBaseHelper = Room.databaseBuilder(context.getApplicationContext(),
                             DataBaseHelper.class, DATABASE_NAME)
@@ -130,4 +146,7 @@ public abstract class DataBaseHelper extends RoomDatabase {
         return dataBaseHelper;
     }
     public abstract ToDoDAO toDoDAO();
+
+    @RenameColumn(tableName = "ToDoModel", fromColumnName = "created", toColumnName = "createdAt")
+    static class MyAutoMigration implements AutoMigrationSpec { }
 }
