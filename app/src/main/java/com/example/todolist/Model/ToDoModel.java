@@ -5,12 +5,14 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
-//@Data
-//@NoArgsConstructor
+@Data
+@NoArgsConstructor
 public class ToDoModel {
     @PrimaryKey(autoGenerate = true)
     private  int id;
@@ -35,47 +37,48 @@ public class ToDoModel {
         this.priority = 1;
     }
 
-    public ToDoModel() {
+//    public ToDoModel() {
+//
+//    }
 
-    }
+//    public String getTask() {
+//        return task;
+//    }
+//
+//    public void setTask(String task) {
+//        this.task = task;
+//    }
 
-    public String getTask() {
-        return task;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
-    public void setTask(String task) {
-        this.task = task;
-    }
+//    public boolean isStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(boolean status) {
+//        this.status = status;
+//    }
+//
+//    public Long getCreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public void setCreatedAt(Long createdAt) {
+//        this.createdAt = createdAt;
+//    }
+//
+//    public int getPriority() {
+//        return priority;
+//    }
+//
+//    public void setPriority(int priority) {
+//        this.priority = priority;
+//    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public Long getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Long createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
 }
