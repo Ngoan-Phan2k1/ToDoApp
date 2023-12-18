@@ -81,8 +81,12 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
                         mList = sortByAlphabet(mList);
                         adapter.setTasks(mList);
                         adapter.notifyDataSetChanged();
-                    } else if (item.getItemId() == R.id.sortTime) {
-                        mList = sortByTime(mList);
+                    } else if (item.getItemId() == R.id.sortTimeAscend) {
+                        mList = sortByTimeAscending(mList);
+                        adapter.setTasks(mList);
+                        adapter.notifyDataSetChanged();
+                    } else if (item.getItemId() == R.id.sortTimeDescend) {
+                        mList = sortByTimeDescending(mList);
                         adapter.setTasks(mList);
                         adapter.notifyDataSetChanged();
                     }
@@ -102,8 +106,13 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
         return mList;
     }
 
-    public List<ToDoModel> sortByTime(List<ToDoModel> mList) {
+    public List<ToDoModel> sortByTimeAscending(List<ToDoModel> mList) {
         Collections.sort(mList, (ToDoModel o1, ToDoModel o2) -> o1.getCreatedAt().compareTo(o2.getCreatedAt()));
+        return mList;
+    }
+
+    public List<ToDoModel> sortByTimeDescending(List<ToDoModel> mList) {
+        Collections.sort(mList, (o1, o2) -> o2.getCreatedAt().compareTo(o1.getCreatedAt()));
         return mList;
     }
 

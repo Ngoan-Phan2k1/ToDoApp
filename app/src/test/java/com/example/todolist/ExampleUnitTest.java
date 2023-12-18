@@ -54,7 +54,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void testSortByTime() {
+    public void testSortByTimeAscending() {
 
         List<ToDoModel> mockList = new ArrayList<>();
         ToDoModel task1 = new ToDoModel(1, "Task A", false, System.currentTimeMillis() + 1);
@@ -65,12 +65,32 @@ public class ExampleUnitTest {
         mockList.add(task3);
         mockList.add(task2);
 
-        Mockito.when(mainActivity.sortByTime(mockList)).thenCallRealMethod();
-        List<ToDoModel> sortedList = mainActivity.sortByTime(mockList);
+        Mockito.when(mainActivity.sortByTimeAscending(mockList)).thenCallRealMethod();
+        List<ToDoModel> sortedList = mainActivity.sortByTimeAscending(mockList);
 
         assertEquals(task1, sortedList.get(0));
         assertEquals(task2, sortedList.get(1));
         assertEquals(task3, sortedList.get(2));
+    }
+
+    @Test
+    public void testSortByTimeDescending() {
+
+        List<ToDoModel> mockList = new ArrayList<>();
+        ToDoModel task1 = new ToDoModel(1, "Task A", false, System.currentTimeMillis() + 1);
+        ToDoModel task2 = new ToDoModel(2, "Task C", false, System.currentTimeMillis() + 2);
+        ToDoModel task3 = new ToDoModel(3, "Task B", false, System.currentTimeMillis() + 3);
+
+        mockList.add(task1);
+        mockList.add(task2);
+        mockList.add(task3);
+
+        Mockito.when(mainActivity.sortByTimeDescending(mockList)).thenCallRealMethod();
+        List<ToDoModel> sortedList = mainActivity.sortByTimeDescending(mockList);
+
+        assertEquals(task3, sortedList.get(0));
+        assertEquals(task2, sortedList.get(1));
+        assertEquals(task1, sortedList.get(2));
     }
 
 

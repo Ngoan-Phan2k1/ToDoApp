@@ -37,48 +37,4 @@ public class ToDoModel {
         this.priority = 1;
     }
 
-//    public ToDoModel() {
-//
-//    }
-
-//    public String getTask() {
-//        return task;
-//    }
-//
-//    public void setTask(String task) {
-//        this.task = task;
-//    }
-
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
-//    public boolean isStatus() {
-//        return status;
-//    }
-//
-//    public void setStatus(boolean status) {
-//        this.status = status;
-//    }
-//
-//    public Long getCreatedAt() {
-//        return createdAt;
-//    }
-//
-//    public void setCreatedAt(Long createdAt) {
-//        this.createdAt = createdAt;
-//    }
-//
-//    public int getPriority() {
-//        return priority;
-//    }
-//
-//    public void setPriority(int priority) {
-//        this.priority = priority;
-//    }
-
 }

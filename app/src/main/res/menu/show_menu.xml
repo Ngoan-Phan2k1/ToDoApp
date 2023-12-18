@@ -5,7 +5,11 @@
         android:title="Sort by alpha"
         />
     <item
-        android:id="@+id/sortTime"
-        android:title="Sort by time"
+        android:id="@+id/sortTimeAscend"
+        android:title="Sort by time ascend"
+        />
+    <item
+        android:id="@+id/sortTimeDescend"
+        android:title="Sort by time descend"
         />
 </menu>

@@ -42,8 +42,8 @@ public class MainActivityTest {
 
         List<ToDoModel> testData = new ArrayList<>();
 
-        testData.add(new ToDoModel(1, "Task 1", false));
-        testData.add(new ToDoModel(2, "Task 2", true));
+        testData.add(new ToDoModel(1, "Task 1", false, System.currentTimeMillis()));
+        testData.add(new ToDoModel(2, "Task 2", true, System.currentTimeMillis()));
 
         activityRule.getScenario().onActivity(activity -> {
             RecyclerView recyclerView = activity.findViewById(R.id.recyclerview);
